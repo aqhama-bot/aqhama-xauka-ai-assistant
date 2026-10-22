@@ -22,14 +22,15 @@ export function currentStreak(log: Set<string>, today = new Date()): number {
   return n;
 }
 
+const parseKey = (k: string) =>
+  new Date(Number(k.slice(0, 4)), Number(k.slice(5, 7)) - 1, Number(k.slice(8, 10)));
+
 export function longestStreak(log: Set<string>): number {
   const days = [...log].sort();
   let best = 0, run = 0;
   let prev: string | null = null;
   for (const k of days) {
-    const [y, m, d] = k.split("-").map(Number);
-    const expected = prev ? dayKey(addDays(new Date(Number(prev.slice(0, 4)), Number(prev.slice(5, 7)) - 1, Number(prev.slice(8))), 1)) : null;
-    run = expected === dayKey(new Date(y, m - 1, d)) ? run + 1 : 1;
+    run = prev && dayKey(addDays(parseKey(prev), 1)) === k ? run + 1 : 1;
     best = Math.max(best, run);
     prev = k;
   }
