@@ -14,13 +14,13 @@ import armLogo from "@/assets/arm-logo.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "STREAK.SYS — Habit & Workout Tracker" },
+      { title: "E's GYM — Habit & Workout Tracker" },
       {
         name: "description",
         content:
           "Log daily habits and workouts, track streaks, weekly goals, activity and milestone unlocks.",
       },
-      { property: "og:title", content: "STREAK.SYS — Habit & Workout Tracker" },
+      { property: "og:title", content: "E's GYM — Habit & Workout Tracker" },
       {
         property: "og:description",
         content:
@@ -178,7 +178,7 @@ function Index() {
           <div>
             <p className="font-mono text-xs text-primary">// v1.1 · {todayK}</p>
             <h1 className="font-mono text-3xl font-bold tracking-tight">
-              STREAK<span className="text-primary">.SYS</span>
+              E's<span className="text-primary"> GYM</span>
             </h1>
           </div>
 
@@ -196,7 +196,7 @@ function Index() {
                 fitness module
               </p>
               <p className="font-mono text-sm font-bold">
-                ARM<span className="text-primary">//</span>UNIT
+                E's<span className="text-primary"> GYM</span>
               </p>
             </div>
             <span className="ml-1 h-2 w-2 shrink-0 rounded-full bg-primary blink" />
