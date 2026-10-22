@@ -315,7 +315,9 @@ function Index() {
               key={f}
               onClick={() => setFilter(f)}
               className={`rounded-sm border px-3 py-1 ${
-                filter === f ? "border-primary text-primary" : "text-muted-foreground"
+                filter === f
+                  ? "border-primary text-primary glow"
+                  : "border-white/25 text-white"
               }`}
             >
               {f}
@@ -325,7 +327,7 @@ function Index() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="grep trackers…"
-            className="ml-auto w-40 rounded-sm border bg-card px-2 py-1 outline-none placeholder:text-muted-foreground focus:border-primary"
+            className="ml-auto w-40 rounded-sm border border-white/25 bg-card px-2 py-1 text-white outline-none placeholder:text-white/70 focus:border-primary"
           />
         </div>
 

@@ -27,6 +27,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-grid: var(--grid);
+  --color-white: var(--white);
 }
 
 :root {
@@ -48,6 +49,7 @@
   --input: oklch(0.27 0.015 255);
   --ring: oklch(0.68 0.2 250);
   --grid: oklch(0.2 0.01 255);
+  --white: oklch(1 0 0);
   --glow: 0 0 18px -2px color-mix(in oklab, var(--primary) 60%, transparent);
 }
 
