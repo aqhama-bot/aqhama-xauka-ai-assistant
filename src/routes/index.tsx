@@ -154,7 +154,7 @@ function Index() {
             id: typeof r.id === "string" ? r.id : crypto.randomUUID(),
             name: r.name,
             kind: r.kind === "workout" ? ("workout" as const) : ("habit" as const),
-            log: Array.isArray(r.log) ? r.log.filter((x) => typeof x === "string") : [],
+            log: Array.isArray(r.log) ? r.log.filter((x: unknown) => typeof x === "string") : [],
             created: typeof r.created === "string" ? r.created : todayK,
             goal: clampGoal(r.goal ?? 7),
           })),
