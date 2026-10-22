@@ -55,6 +55,16 @@
   box-shadow: var(--glow);
 }
 
+@utility blink {
+  animation: blink 1.4s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    opacity: 0.15;
+  }
+}
+
 @utility bg-grid {
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),

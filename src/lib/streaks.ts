@@ -36,3 +36,16 @@ export function longestStreak(log: Set<string>): number {
   }
   return best;
 }
+
+/** How many of the given day keys are present in the log. */
+export function loggedIn(log: Set<string>, days: string[]): number {
+  return days.reduce((n, d) => n + (log.has(d) ? 1 : 0), 0);
+}
+
+/** Day-streak thresholds a tracker can unlock, ascending. */
+export const MILESTONES = [3, 7, 14, 30, 50, 100] as const;
+
+/** Milestones reached by at least one of the given best streaks. */
+export function unlocked(bests: number[]): number[] {
+  return MILESTONES.filter((m) => bests.some((b) => b >= m));
+}

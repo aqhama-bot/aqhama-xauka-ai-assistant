@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { currentStreak, longestStreak } from "./streaks";
+import { currentStreak, longestStreak, loggedIn, unlocked } from "./streaks";
 
 const today = new Date(2026, 9, 22);
 describe("streaks", () => {
@@ -14,5 +14,13 @@ describe("streaks", () => {
   });
   it("finds longest run across month boundary", () => {
     expect(longestStreak(new Set(["2026-09-30", "2026-10-01", "2026-10-02", "2026-10-05"]))).toBe(3);
+  });
+  it("counts logged days inside a week window", () => {
+    const week = ["2026-10-16", "2026-10-17", "2026-10-18", "2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22"];
+    expect(loggedIn(new Set(["2026-10-17", "2026-10-21", "2026-10-22", "2026-10-15"]), week)).toBe(3);
+  });
+  it("unlocks only milestones reached by some tracker", () => {
+    expect(unlocked([0, 8, 15])).toEqual([3, 7, 14]);
+    expect(unlocked([2])).toEqual([]);
   });
 });
